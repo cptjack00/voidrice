@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if  [[ $(pgrep -xc spotify) -le 1 ]]; then
+    echo ""; exit;
+else
+    echo "  `spotifyctl status --format '%artist%: %title%' --max-length 40 --trunc '...'`"
+fi
+
