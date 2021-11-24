@@ -50,7 +50,9 @@ HISTFILE=~/.cache/zsh/history
 # bindkey -v '^?' backward-delete-char
 
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
+plugins=(git vi-mode)
+# source /usr/share/zsh-autosuggestions
 
 source $ZSH/oh-my-zsh.sh
 ENABLE_CORRECTION="true"
@@ -120,3 +122,5 @@ lg()
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
