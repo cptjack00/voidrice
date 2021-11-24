@@ -15,16 +15,22 @@ done; unset command
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
-	bc="bc -ql" \
+	rm="rm -v" \
+    rma="rm -rfv *(D)" \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner" \
+    tmux="tmux -f $HOME/.config/tmux/tmux.conf"
+    sdn="shutdown -h now" \
+    cat="bat" \
+    pbcopy="xclip -selection clipboard" \
+    pbpaste="xclip -selection clipboard -o"
 
 # Colorize commands when possible.
 alias \
-	ls="ls -hN --color=auto --group-directories-first" \
+    ls="exa --icons --long" \
+    l="exa --icons --long -alh" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"

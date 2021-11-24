@@ -1,12 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
 # Enable colors and change prompt:
-# autoload -U colors && colors	# Load colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+autoload -U colors && colors	# Load colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+unsetopt nomatch
 
 # History in cache directory:
 HISTSIZE=10000000
@@ -16,7 +18,12 @@ HISTFILE=~/.cache/zsh/history
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ]
+    then 
+        source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+    else 
+        shortcuts
+fi
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -63,29 +70,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias ..="cd .."
-alias vim="nvim"
-alias h="cd $HOME"
-alias d="cd $HOME/Documents/"
-alias D="cd $HOME/Downloads/"
-# alias ls="ls -alh --color=auto"
-alias ls="exa --icons --long"
-alias sdn="shutdown -h now"
-alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
-alias cf="cd $HOME/.config/"
-# alias pacman="sudo pacman"
-alias cat="bat"
-alias src="cd $HOME/.local/src"
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
-alias gc="git commit -S"
-
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/.local/MATLAB/R2018b/bin:$PATH"
-# export PATH="$HOME/.local/go/bin:$PATH"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -102,11 +86,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Change shell directory to the directory that lazygit is in
 lg()
 {
@@ -120,7 +99,7 @@ lg()
     fi
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+source /usr/share/fzf/key-bindings.zsh 2>/dev/null
+source /usr/share/fzf/completion.zsh 2>/dev/null
