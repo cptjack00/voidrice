@@ -15,15 +15,19 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
+# Load zsh-abbrev if existent.
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zsh-abbr.zsh" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zsh-abbr.zsh"
+
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ]
-    then 
+    then
         source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
-    else 
+    else
         shortcuts
 fi
+
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -36,7 +40,7 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey -v
 export KEYTIMEOUT=1
 # NPM_PACKAGES="~/.npm_packages"
-# 
+#
 # export PATH="$PATH:$NPM_PACKAGES/bin"
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char

@@ -12,45 +12,37 @@ for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
 done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
-alias \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	rm="rm -v" \
-    rma="rm -rfv *(D)" \
-	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner" \
-    tmux="tmux -f $HOME/.config/tmux/tmux.conf"
-    sdn="shutdown -h now" \
-    cat="bat" \
-    pbcopy="xclip -selection clipboard" \
-    pbpaste="xclip -selection clipboard -o"
+abbr cp="cp -iv"
+abbr mv="mv -iv"
+abbr rm="rm -v"
+abbr rma="rm -rfv *(D)"
+abbr mkd="mkdir -pv"
+abbr yt="youtube-dl --add-metadata -i"
+abbr yta="yt -x -f bestaudio/best"
+abbr ffmpeg="ffmpeg -hide_banner"
+abbr tmux="tmux -f $HOME/.config/tmux/tmux.conf"
+abbr sdn="shutdown -h now"
+abbr cat="bat"
+abbr pbcopy="xclip -selection clipboard"
+abbr pbpaste="xclip -selection clipboard -o"
 
 # Colorize commands when possible.
-alias \
-    ls="exa --icons --long" \
-    l="exa --icons --long -alh" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi"
+abbr ls="exa --icons --long"
+abbr l="exa --icons --long -alh"
+abbr grep="grep --color=auto"
+abbr diff="diff --color=auto"
+abbr ccat="highlight --out-format=ansi"
 
 # These common commands are just too long! Abbreviate them.
-alias \
-	ka="killall" \
-	g="git" \
-	trem="transmission-remote" \
-	YT="youtube-viewer" \
-	sdn="shutdown -h now" \
-	e="$EDITOR" \
-	v="$EDITOR" \
-	p="pacman" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove -R" \
-	xq="xbps-query" \
-	z="zathura"
+abbr ka="killall"
+abbr g="git"
+abbr sdn="shutdown -h now"
+abbr e="$EDITOR"
+abbr v="$EDITOR"
+abbr p="pacman"
+abbr xi="sudo xbps-install"
+abbr xr="sudo xbps-remove -R"
+abbr xq="xbps-query"
+abbr z="zathura"
 
-alias \
-	magit="nvim -c MagitOnly" \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+abbr ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
