@@ -21,12 +21,12 @@ HISTFILE=~/.cache/zsh/history
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ]
-    then
-        source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
-    else
-        shortcuts
-fi
+# if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ]
+#     then
+#        source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+#    else
+#        shortcuts
+# fi
 
 
 # Basic auto/tab complete:
