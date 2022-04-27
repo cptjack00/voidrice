@@ -3,6 +3,8 @@ cac ${XDG_CACHE_HOME:-$HOME/.cache}
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+ms  $XDG_DOCUMENTS_DIR/MathShjt
+comp  $XDG_DOCUMENTS_DIR/CompProg
 shc  ${XDG_DATA_HOME:-$HOME/.local/share}
 h   $HOME
 mn  /mnt
