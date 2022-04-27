@@ -1,3 +1,6 @@
 [submodule ".config/mpv/script_modules/mpvSockets"]
 	path = .config/mpv/script_modules/mpvSockets
 	url = https://github.com/wis/mpvSockets.git
+[submodule "CosmicNvim"]
+	path = CosmicNvim
+	url = https://github.com/cptjack00/CosmicNvim
